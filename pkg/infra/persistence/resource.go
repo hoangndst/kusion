@@ -28,7 +28,7 @@ func NewResourceRepository(db *gorm.DB) repository.ResourceRepository {
 
 // Create saves a resource to the repository.
 func (r *resourceRepository) Create(ctx context.Context, dataEntityList []*entity.Resource) error {
-	// r.db.AutoMigrate(&ResourceModel{})
+	r.db.AutoMigrate(&ResourceModel{})
 	for _, dataEntity := range dataEntityList {
 		err := dataEntity.Validate()
 		if err != nil {

@@ -27,7 +27,7 @@ func NewStackRepository(db *gorm.DB) repository.StackRepository {
 
 // Create saves a stack to the repository.
 func (r *stackRepository) Create(ctx context.Context, dataEntity *entity.Stack) error {
-	// r.db.AutoMigrate(&StackModel{})
+	r.db.AutoMigrate(&StackModel{})
 	err := dataEntity.Validate()
 	if err != nil {
 		return err
